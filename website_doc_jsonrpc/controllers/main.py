@@ -21,18 +21,9 @@
 #
 ##############################################################################
 
-import time
-from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
-
-import werkzeug.urls
-from werkzeug.exceptions import NotFound
-
 from openerp import http
-from openerp import tools
 from openerp.http import request
-from openerp.tools.translate import _
-from openerp.addons.website.models.website import slug
+
 
 class website_doc_api(http.Controller):
 
@@ -40,30 +31,28 @@ class website_doc_api(http.Controller):
     def doc_jsonrpc(self, **searches):
         cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
         model_obj = pool['ir.model']
-        
+
         obj_ids = model_obj.search(
-            request.cr, request.uid, [(1,'=',1)], context=request.context)
+            request.cr, request.uid, [(1, '=', 1)], context=request.context)
         model_ids = model_obj.browse(request.cr, request.uid, obj_ids,
-                                      context=request.context)
+                                     context=request.context)
         values = {
             'model_ids': model_ids
         }
         return http.request.render("website_doc_jsonrpc.index", values)
-    
+
     @http.route(['/doc/jsonrpc/<model("ir.model"):model>'], type='http', auth="public", website=True)
     def doc_jsonrpc_model(self, model, **searches):
         cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
-        
+
         model_obj = pool['ir.model']
-        
+
         obj_ids = model_obj.search(
-            request.cr, request.uid, [(1,'=',1)], context=request.context)
+            request.cr, request.uid, [(1, '=', 1)], context=request.context)
         model_ids = model_obj.browse(request.cr, request.uid, obj_ids,
-                                      context=request.context)
+                                     context=request.context)
         values = {
             'model_ids': model,
             'all_models': model_ids
         }
         return http.request.render("website_doc_jsonrpc.single", values)
-    
-    

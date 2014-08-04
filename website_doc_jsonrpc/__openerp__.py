@@ -21,26 +21,26 @@
 #
 ##############################################################################
 {
-    'name' : 'Website Odoo JSON RPC doc',
-    'version' : '0.1',
-    'author' : 'initOS GmbH & Co. KG',
-    'category' : '',
-    'description' : """ """,
+    'name': 'Website Odoo JSON RPC doc',
+    'version': '0.1',
+    'author': 'initOS GmbH & Co. KG',
+    'category': '',
+    'description': """ """,
     'website': 'http://www.initos.com',
-	'license': 'AGPL-3',
-    'images' : [
+    'license': 'AGPL-3',
+    'images': [
     ],
-    'depends' : [
-         'website'
+    'depends': [
+        'website'
     ],
     'data': [
-         'views/model_view.xml'
+        'views/model_view.xml'
     ],
     'js': [
     ],
-    'qweb' : [
+    'qweb': [
     ],
-    'css':[
+    'css': [
     ],
     'demo': [
     ],
