@@ -29,8 +29,7 @@ class website_doc_api(http.Controller):
 
     @http.route(['/doc/jsonrpc'], type='http', auth="public", website=True)
     def doc_jsonrpc(self, **searches):
-        cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
-        model_obj = pool['ir.model']
+        model_obj = request.registry['ir.model']
 
         obj_ids = model_obj.search(
             request.cr, request.uid, [(1, '=', 1)], context=request.context)
@@ -43,9 +42,7 @@ class website_doc_api(http.Controller):
 
     @http.route(['/doc/jsonrpc/<model("ir.model"):model>'], type='http', auth="public", website=True)
     def doc_jsonrpc_model(self, model, **searches):
-        cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
-
-        model_obj = pool['ir.model']
+        model_obj = request.registry['ir.model']
 
         obj_ids = model_obj.search(
             request.cr, request.uid, [(1, '=', 1)], context=request.context)
