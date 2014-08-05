@@ -25,7 +25,7 @@
     'version': '0.1',
     'author': 'initOS GmbH & Co. KG',
     'category': '',
-    'description': """ Gernerates a doc for JSON RPC
+    'description': """Generates a documentation for JSON RPC
     for the current installation on the fly""",
     'website': 'http://www.initos.com',
     'license': 'AGPL-3',

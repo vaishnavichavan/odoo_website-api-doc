@@ -70,7 +70,7 @@
                             <h3>Info</h3>
                             <dl>
                                 <dt for="name">Name</dt><dd><span t-field="model.name"> </span></dd>
-                                <dt for="name">tech. name</dt><dd><span t-field="model.model"> </span></dd>
+                                <dt for="name">Technical name</dt><dd><span t-field="model.model"> </span></dd>
                                 <t t-if="model.osv_memory">
                                     <dt for="name">Transient Model</dt><dd>Yes</dd>
                                 </t>
